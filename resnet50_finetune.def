@@ -1,0 +1,22 @@
+# number of layers
+50
+# number of stages from conv2
+4
+# definition of stages: conv #block learn_weights
+conv 3 0
+1 64
+3 64
+1 256
+conv 4 1
+1 128
+3 128
+1 512
+conv 6 1
+1 256
+3 256
+1 1024
+conv 3 1
+1 512
+3 512
+1 2048
+
