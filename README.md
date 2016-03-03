@@ -1,9 +1,11 @@
 # resnet-generator
-Generate Caffe Prototxt for Deep Residual Learning Network
+Generate Caffe Prototxt for Deep Residual Learning Network 
+
+Only support Faster R-CNN network so far, but can be easily changed to support Fast R-CNN, classification network, etc.
 
 ## Examples
 
-- First,  Define your network in a file (see resnet50.def)
+- First,  define your network in a file (see resnet50.def)
 
 - Generate prototxt:
 
