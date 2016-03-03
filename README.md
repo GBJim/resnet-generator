@@ -6,6 +6,7 @@ Generate Caffe Prototxt for Deep Residual Learning Network
 - First,  Define your network in a file (see resnet50.def)
 
 - Generate prototxt:
+
 Generate train/test prototxt for Faster R-CNN, 21 classes (including background):
 ```
 ./resnet_generator.py --cfg resnet50.def -t fasterrcnn --ncls 21
