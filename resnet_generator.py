@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 """
-Generate the residule learning network.
-Author: Yemin Shi
-Email: shiyemin@pku.edu.cn
+Generate prototxt of the Deep Residule Learning for Caffe.
 MSRA Paper: http://arxiv.org/pdf/1512.03385v1.pdf
 """
 import argparse
