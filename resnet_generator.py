@@ -558,7 +558,7 @@ def generate_train(args):
                     last_output = num_output
 
     '''RPN layers'''
-    num_output = args.conv_params[roi_layer][0][0]
+    num_output = args.conv_params[roi_layer][0][1]
     network_str += '#============== RPN ===============\n'
     network_str += generate_rpn_layers(last_top, num_output)
     feat_stride = 2**(roi_layer+1)
@@ -668,7 +668,7 @@ def generate_test():
                     last_output = num_output
 
     '''RPN layers'''
-    num_output = args.conv_params[roi_layer][0][0]
+    num_output = args.conv_params[roi_layer][0][1]
     network_str += '#============== RPN ===============\n'
     network_str += generate_rpn_layers(last_top, num_output)
     feat_stride = 2**(roi_layer+1)
