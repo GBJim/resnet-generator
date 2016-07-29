@@ -138,10 +138,10 @@ def generate_conv_layer(name, bottom, top, lr_mult, decay_mult, lr_mult2, decay_
     kernel_size: %d
     pad: %d
     stride: %d
-    weight_filler { type: "%s" std: %.3f }
+   
     bias_filler { type: "constant" value: 0 }
   }
-}\n'''%(name, bottom, top, lr_mult, decay_mult, lr_mult2, decay_mult2, num_output, kernel_size, pad, stride, filler, std)
+}\n'''%(name, bottom, top, lr_mult, decay_mult, lr_mult2, decay_mult2, num_output, kernel_size, pad, stride)
     return conv_layer_str
 
 def generate_conv_layer_no_bias(name, bottom, top, lr_mult, decay_mult, num_output, kernel_size, stride, filler='msra', std=0.01):
@@ -158,9 +158,9 @@ def generate_conv_layer_no_bias(name, bottom, top, lr_mult, decay_mult, num_outp
     pad: %d
     stride: %d
     bias_term: false
-    weight_filler { type: "%s" std: %.3f }
+  
   }
-}\n'''%(name, bottom, top, lr_mult, decay_mult, num_output, kernel_size, pad, stride, filler, std)
+}\n'''%(name, bottom, top, lr_mult, decay_mult, num_output, kernel_size, pad, stride)
     return conv_layer_str
 
 def generate_pooling_layer(name, bottom, top, pool_type, kernel_size, stride):
@@ -187,10 +187,10 @@ def generate_fc_layer(name, bottom, top, num_output, filler="msra", std=0.01):
   param { lr_mult: 2 decay_mult: 0 }
   inner_product_param {
      num_output: %d
-     weight_filler { type: "%s" std: %.3f }
+     
      bias_filler { type: "constant" value: 0 }
   }
-}\n'''%(name, bottom, top, num_output, filler, std)
+}\n'''%(name, bottom, top, num_output)
     return fc_layer_str
 
 def generate_activation_layer(name, bottom, act_type="ReLU"):
@@ -287,8 +287,9 @@ layer {
   scale_param {
     bias_term: true
   }
-  param { lr_mult: %d }
-}\n'''%(bn_name, bottom, bottom, ugs, scale_name, bottom, bottom, lr_mult)
+  param { lr_mult: 0 decay_mult: 0}
+  param { lr_mult: 0 decay_mult: 0}
+}\n'''%(bn_name, bottom, bottom, ugs, scale_name, bottom, bottom)
     return bn_layer_str
 
 def generate_eltwise_layer(name, bottom0, bottom1, top):
